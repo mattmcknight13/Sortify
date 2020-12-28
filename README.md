@@ -20,7 +20,7 @@ What is your data source? What format is your data in? How much cleaning and mun
 
 - Will need to pull data from 4-5 different endpoints
 
-    - Get a users top tracks: https://developer.spotify.com/console/personalization/
+    - Get a users top tracks: https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks/
     - Get a users recently played tracks: https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/
     - Get a User's Saved Tracks: https://developer.spotify.com/documentation/web-api/reference/library/get-users-saved-tracks/
     - Get an albums tracks: https://developer.spotify.com/console/get-album-tracks/
