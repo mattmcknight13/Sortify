@@ -1,39 +1,64 @@
-# GA Capstone Project Outline
+# GA Capstone: Sortify
 
-What is your problem statement? What will you actually be doing?
-- I plan to build some sort of music recommender app using the Spotify API
+Aziz Maredia | DSIR-1019 | 01.27.2021
 
-- Problem: Building a recommender system which tells you which songs on an album you will like based on your top tracks, recently played music, and last 50 songs saved. Will help people identiy which songs on an album to listen to, rather then listening to the whole album to figure out which songs they like.
+## Problem Statement
 
-- User inputs an album or playlist and the app would return which songs on the album the user would like in order based on the audio features of there most recently played songs/top played songs.
+Nothing beats the feeliing of disovering a new artist, album, or song you love. Music streaming services such as Spotify offer featured playlist such as 'Discover Weekly', where users can find new songs they might like based. While playlists like these help to make discovering new music easier, one feature Spotify lacks is the ability to tell users how likely they will like a song. For example, when new albums are released, many times we might not have the time or patience to listen to the full album, rather, we would simply like to know which songs we will like.  
 
-Who is your audience? Why will they care?
-- Either anyone with a Spotify account or anyone for loves music!
 
-What is your success metric? How will you know if you are actually solving the problem in a useful way?
-- It seems like recommender systems and unsuperviseds models don't actually have real success metrics.
-- Need to discuss this more with instructors
+This is were, Sortify comes in. 
 
-What is your data source? What format is your data in? How much cleaning and munging will be required?
-- Spotify API
-- API endpoints return JSON metadata
+## Project Directory
 
-- Will need to pull data from 4-5 different endpoints
+## Executive Summary
 
-    - Get a users top tracks: https://developer.spotify.com/documentation/web-api/reference/personalization/get-users-top-artists-and-tracks/
-    - Get a users recently played tracks: https://developer.spotify.com/documentation/web-api/reference/player/get-recently-played/
-    - Get a User's Saved Tracks: https://developer.spotify.com/documentation/web-api/reference/library/get-users-saved-tracks/
-    - Get an albums tracks: https://developer.spotify.com/console/get-album-tracks/
-    - Get audio features for a track: https://developer.spotify.com/documentation/web-api/reference/tracks/get-several-audio-features/
+## Data Collection and Dictionary
 
-- Fair amount of cleaning will be needed to get only the columns needed
+The data for the alpha version of this project was pulled using the [Spotify Web API](https://developer.spotify.com/documentation/web-api/). More specifically, the [Spotipy Python library](https://spotipy.readthedocs.io/en/2.16.1/) was used to access user and music data from specific API endpoints.
 
-What are potential challenges or obstacles and how will you mitigate them?
-- Figuring out how a user will be able to connect their Spotify account to the app. Need to figure out how the authorizations work
-- Figuring out how I will pull data in real-time because every user is different and has different liked songs
-- Still need to learn about recommender systems.
-- Not sure if I will have enough data to effectively make recommendations.
+First, a [User Authentication with OAuth 2.0](https://developer.spotify.com/documentation/general/guides/authorization-guide/) workflow is setup so the end user can grant permission to access and/or modify the user’s own data. To get that authorization, a call is generated to the Spotify Accounts Service / authorize endpoint, passing along a list of the scopes for which access permission is sought.
 
-Is this a reasonable project given the time constraints that you have?
-- I believe this is reason project given the time contraints, but will need to discuss more with instructors.
+Once the authorization workflow is setup, the users enters an album they would like to search and sort. 5 different API endpoints are used to pull the information needed.
 
+1. [Search for an Item](https://developer.spotify.com/console/get-search-item/): Returns Spotify ID of album searched
+2. [Get an Album's Tracks](https://developer.spotify.com/console/get-album-tracks/): Using the ID, returns the album's tracks, track IDs, artist ID, and more
+3. [Get Several Tracks](https://developer.spotify.com/console/get-several-tracks/): Using the track IDs, returns the track's popularity scores
+4. [Get Audio Features for Several Tracks](https://developer.spotify.com/console/get-audio-features-several-tracks/): Using the track IDs, returns audio features of tracks (e.g. acousticness, tempo)
+5. [Get Several Artists](https://developer.spotify.com/console/get-several-artists/): Using the artist ID, returns artist's genres and popularity scores
+
+From there, 3 different endpoints are used to pull a user's saved tracks and various information related to tracks:
+
+1. [Get Current User's Saved Tracks](https://developer.spotify.com/console/get-current-user-saved-tracks/): Returns the user's entire saved library of tracks (10,000 max) including track IDs, artist IDs, and more
+2. [Get Audio Features for Several Tracks](https://developer.spotify.com/console/get-audio-features-several-tracks/): Using the track IDs, returns audio features of tracks (e.g. acousticness, tempo)
+3. [Get Several Artists](https://developer.spotify.com/console/get-several-artists/): Using the artist IDs, returns artist's genres and popularity scores
+
+
+### Data Cleaning
+
+Most data
+
+Popularity Scores
+Loudness
+
+Min max scaler: tempo
+
+Release Date --> show only year
+
+Dummys --> 'key', 'release_date', 'time_signature'
+
+Genre's 
+
+## Data Processing and PCA
+
+
+### K-Means Clustering Modeling
+
+## Recommender System
+
+
+
+## Future Developments
+
+
+## Final Conclusions and Summary
