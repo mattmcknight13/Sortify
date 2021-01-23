@@ -4,15 +4,7 @@ Aziz Maredia | DSIR-1019 | 01.27.2021
 
 ## Problem Statement
 
-Nothing beats the feeliing of disovering a new artist, album, or song you love. Music streaming services such as Spotify offer featured playlist such as 'Discover Weekly', where users can find new songs they might like based. While playlists like these help to make discovering new music easier, one feature Spotify lacks is the ability to tell users how likely they will like a song. For example, when new albums are released, many times we might not have the time or patience to listen to the full album, rather, we would simply like to know which songs we will like.  
-
-
-This is were, Sortify comes in. 
-
-
-## Executive Summary
-
-
+Nothing beats the feeliing of disovering a new artist, album, or song you love. Music streaming services such as Spotify offer featured playlist such as 'Discover Weekly', where users can find new songs they might like based. While playlists like these help to make discovering new music easier, one feature Spotify lacks is the ability to tell users how likely they will like a song. For example, when new albums are released, many times we might not have the time or patience to listen to the full album, rather, we would simply like to know which songs we will like. This is were Sortify comes in. Sortify uses data science to rank of an album’s songs based on a users listening history, helping them find the music they love faster.
 
 ## Data Collection and Dictionary
 
@@ -60,6 +52,14 @@ Our album is then sorted is descending order by cosine similarity to the chosen 
 
 ## Future Developments
 
+There are many parts of this project I would like to continue working on to improve it:
+
+1. Add Lyrics: I think it would be interesting to collect song lyrics which could be vectorized to add words/phrases as features. One limitation my current model has is that it is basing recommendations mostly off of audio/sound features, however, for many music lovers lyrics play an important role of determine whether they like a song or not. Furthermore, a sentiment analysis could also be performed on the lyrics and the scores could be added as features, helping us determine a users perferences for emotions displayed in songs.
+
+2. Conduct User Surveys: First off, I'd like to see how good the application is at predicting songs on album that the user would like. I'd have them listen to an album on a platform other than Spotify, rank the songs on the album, then compare the ranking to the ouput of the application. From there, I'd want to test out different values for the number of PCA components and number of clusters (k) and see if tuning those paramaters is able to better match the applications song ranking to the users song ranking.
+
+3. Sort Other Things: It would be great to add other capabilites to this application such as allowing the user to search an artist and have 20-30 of their songs sorted based off of the users saved tracks, or maybe have the user search for playlists and have the songs within sorted.  
 
 ## Final Conclusions and Summary
 
+This has been a very fun project as I was able apply my data science knowledge to my passion for music, while also working to solve a personal problem I have when trying to discover new music. Using this application, a Spotify user can input an album and see the ranking of an album’s songs based on their listening history, helping users find the music they love faster. Any album, sorted to match their taste.
