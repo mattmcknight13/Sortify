@@ -1,0 +1,71 @@
+
+body {
+  font-family: Avenir;
+  color: #868e96;
+  margin: auto;
+  font-size: 13pt;
+  text-align: center;
+  background-color: #343434;
+}
+
+.header-img {
+  padding-bottom: 40px;
+  background-image: url("./images/logo.jpg");
+  background-repeat: no-repeat;
+  height: 300px;
+  background-size: contain;
+  position: relative;
+  width: 40%;
+  top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: -50;
+}
+
+.input-description {
+  text-align: left;
+  color: black;
+  max-width: 500px;
+  margin: auto;
+}
+
+input {
+  background-color: lightgray;
+  font-size: 14pt;
+  vertical-align: middle;
+  color: #343434;
+  padding: 18px 18px;
+  margin: 10px 2px;
+  cursor: pointer;
+  shape-outside: padding-box;
+  border-image: initial;
+  border-style: solid;
+  border-radius: 15px;
+  border: 2.5px solid #556677;
+}
+
+input:hover {
+  background-color: darkgray;
+  border-color: rgb(150, 150, 150) rgb(125, 125, 125) rgb(110, 110, 110);
+  color: white;
+}
+
+/* Credits: https://codepen.io/vsync/pen/czgrf */
+textarea {
+  font-family: Avenir;
+  font-size: 14pt;
+  text-indent: 7px;
+  vertical-align: middle;
+  height: 30px;
+  resize: none;
+  overflow: hidden;
+  width: 400px;
+  font-size: 18px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  display: block;
+  border: 2.5px solid #556677;
+  border-radius: 15px;
+  z-index: 200;
+}
