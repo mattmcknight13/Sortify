@@ -21,13 +21,6 @@ body {
   z-index: -50;
 }
 
-/* .input-description {
-  text-align: left;
-  color: black;
-  max-width: 500px;
-  margin: auto;
-} */
-
 input {
   background-color: lightgray;
   font-size: 14pt;
@@ -36,26 +29,23 @@ input {
   padding: 18px 18px;
   margin: 10px 2px;
   cursor: pointer;
-  shape-outside: padding-box;
-  border-image: initial;
   border-style: solid;
   border-radius: 15px;
-  border: 2.5px solid #556677;
+  /* border: 2.5px solid #556677; */
 }
 
-input:hover {
+/* input:hover {
   background-color: darkgray;
   border-color: rgb(150, 150, 150) rgb(125, 125, 125) rgb(110, 110, 110);
   color: white;
-}
+} */
 
 /* Credits: https://codepen.io/vsync/pen/czgrf */
 .search {
   font-family: Avenir;
   font-size: 14pt;
   text-indent: 7px;
-  /* vertical-align: middle; */
-  height: 30px;
+  height: 50px;
   resize: none;
   overflow: hidden;
   width: 50%;
@@ -64,9 +54,8 @@ input:hover {
   margin-top: 5px;
   margin-bottom: 15px;
   display: block;
-  border: 2.5px solid #556677;
+  background-color: rgb(41, 41, 41);
+  box-shadow: inset -1px -1px 10px #000000, inset 1px 1px 10px lightgray;
   border-radius: 15px;
   z-index: 200;
 }
-
-
