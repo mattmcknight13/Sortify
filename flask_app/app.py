@@ -26,7 +26,7 @@ cid = '01e5c3c39a334ae78bf5becf053ad2d5'
 secret = '3c481468946e43dc9da43ed6b5c16bc8'
 uri = 'http://127.0.0.1:5000/api_callback'
 cache = '.spotipyoauthcache'
-scope = 'user-library-read'
+scope = 'user-library-read user-read-private'
 
 
 @app.route('/')
@@ -74,7 +74,7 @@ def form():
 
 
 @app.route('/results')
-def sort_album():
+def album_sort():
     user_input = request.args
 
     sp = access_spotify()
@@ -296,8 +296,6 @@ def get_genres(all_tracks_df, sp):
         start += 50
         end += 50
 
-#     df.rename(columns = {'popularity': 'popularity_artist'}, inplace = True)
-
     return df
 
 
@@ -369,9 +367,6 @@ def get_album_tracks(album_to_search, sp):
 
     df['release_date'] = results2['release_date']
 
-#     results3 = sp.tracks(tracks = list(df['track_id']))
-#     df['popularity_song'] = [[i][0]['popularity'] for i in results3['tracks']]
-
     df_audio = get_audio_features(df, sp)
     df = pd.merge(df, df_audio.rename(
         columns={'id': 'track_id'}), on='track_id', how='inner')
@@ -441,8 +436,6 @@ def clean_genres(df):
 def clean_data(df):
 
     # bringing the following variables down to a 0-1 scale
-    # df['popularity_song'] = df['popularity_song'] / 100 # currently on 0-100 scale
-    # df['popularity_artist'] = df['popularity_artist'] / 100 # currently on 0-100 scale
     df['loudness'] = (df['loudness'] / 60) * -1  # currently on -60-0 scale
 
     # tempo is not on a scale so using a minmax scalar to bring it down to a 0-1 scale
@@ -542,8 +535,6 @@ def cluster_user_tracks(df):
 def sort_album(user_tracks_pca, album_tracks_pca, album_final_model):
 
     model = cluster_user_tracks(user_tracks_pca)
-
-    centroids_df = pd.DataFrame(model.cluster_centers_)
 
     similarity_df = pd.DataFrame(cosine_similarity(
         np.array(album_tracks_pca), model.cluster_centers_))

@@ -1,4 +1,3 @@
-
 body {
   font-family: Avenir;
   color: white;
@@ -43,34 +42,84 @@ body {
 }
 
 table {
-    border: None;
-    display: table;
-    border-collapse: separate;
-    box-sizing: border-box;
-    text-indent: initial;
-    border-spacing: 0 7px;
-    margin-left: 500px;
-    margin-top: 40px;
-    padding-bottom: 30px;
-    width: 470px;
+  border: None;
+  display: table;
+  border-collapse: separate;
+  box-sizing: border-box;
+  text-indent: initial;
+  border-spacing: 0 7px;
+  margin-left: 500px;
+  margin-top: 40px;
+  padding-bottom: 30px;
+  width: 470px;
 }
 
 thead {
-    display: table-header-group;
-    vertical-align: middle;
-    border-color: inherit;
-    text-align: left;
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+  text-align: left;
 }
 
 th {
-    border: None;
-    border-bottom: 1px solid white;
-    display: table-cell;
-    vertical-align: inherit;
-    font-weight: bold;
-    text-align: left;
+  border: None;
+  border-bottom: 1px solid white;
+  display: table-cell;
+  vertical-align: inherit;
+  font-weight: bold;
+  text-align: left;
 }
 
-tr, td {
-    border: None;
+tr,
+td {
+  border: None;
+}
+
+/* .input-description {
+  text-align: left;
+  color: black;
+  max-width: 500px;
+  margin: auto;
+} */
+
+input {
+  background-color: lightgray;
+  font-size: 14pt;
+  vertical-align: middle;
+  color: #343434;
+  padding: 18px 18px;
+  margin: 10px 2px;
+  cursor: pointer;
+  shape-outside: padding-box;
+  border-image: initial;
+  border-style: solid;
+  border-radius: 15px;
+  border: 2.5px solid #556677;
+  position: relative;
+}
+
+input:hover {
+  background-color: darkgray;
+  border-color: rgb(150, 150, 150) rgb(125, 125, 125) rgb(110, 110, 110);
+  color: white;
+}
+
+/* Credits: https://codepen.io/vsync/pen/czgrf */
+.search {
+  font-family: Avenir;
+  font-size: 14pt;
+  text-indent: 7px;
+  /* vertical-align: middle; */
+  height: 30px;
+  resize: none;
+  overflow: hidden;
+  width: 50%;
+  font-size: 18px;
+  margin: auto;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  display: block;
+  border: 2.5px solid #556677;
+  border-radius: 15px;
+  z-index: 200;
 }

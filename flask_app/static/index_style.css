@@ -1,11 +1,12 @@
 body {
   font-family: Avenir;
-  color: #868e96;
+  color: white;
   margin: auto;
   /* max-width: 800px; */
-  font-size: 13pt;
+  font-size: 16pt;
   text-align: center;
   background-color: #343434;
+  outline: none;
 }
 
 .header-img {
@@ -21,7 +22,17 @@ body {
   margin-right: auto;
 }
 
-input {
-  cursor: pointer;
-  width: 30%;
+.btn {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  background-color: #343434;
+  text-align: justify;
+  width: 400px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  padding-right: 10px;
 }
